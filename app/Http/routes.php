@@ -54,7 +54,7 @@ Route::get('oauth/validate_token/', ['middleware' => 'oauth', function() {
 		$datetime2 = new DateTime();
 		$interval = $datetime1->diff($datetime2);
 		$days = intval($interval->format('%a'));
-		if ($days > 2) {
+		if ($days > 1) {
 			DB::table('oauth_sessions')->where('id', $session->id)->delete();
 		}
 	}
